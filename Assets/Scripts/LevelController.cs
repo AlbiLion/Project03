@@ -1,44 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class LevelController : MonoBehaviour
 {
-    float CurrentLevel;
+    float currentLevel;
     float currentPoints;
-    [SerializeField] float levelUpRequirement = 10;
-    [SerializeField] float _incrementBy = 10;
+    [SerializeField] float levelUpRequirement;
+    [SerializeField] float _incrementBy;
+    [SerializeField] private TextMeshProUGUI levelText;
+    public Slider levelSlider;
 
-    bool _canLevelUp = false;
+    bool _canLevelUp;
 
     private void Awake()
     {
         currentPoints = 0;
-        CurrentLevel = 0;
+        currentLevel = 1;
+        levelText.text = "Level: " + currentLevel.ToString();
+    }
+    private void Start()
+    {
+        levelSlider.maxValue = levelUpRequirement;
+        levelSlider.value = currentPoints;
     }
     void Update()
     {
         if (currentPoints >= levelUpRequirement)
         {
             _canLevelUp = true;
-        }
-
-        if (_canLevelUp)
-        {
             LevelUpSequence();
         }
     }
     void LevelUpSequence()
     {
-        CurrentLevel += 1;
+        //Updates current level and is reflected on the UI
+        currentLevel += 1;
+        levelText.text = "Level: " + currentLevel.ToString();
+
+        //the amount of points needed to level up again goes up by the increment amount
         levelUpRequirement += _incrementBy;
+
+        // Reset current points, _canLevelUp status, level slider bar,
         currentPoints = 0;
-        _canLevelUp = false;
+        _canLevelUp = false;  
+        levelSlider.value = currentPoints;
+
+        //level slider bar's max value increases by the new levelUpRequirement
+        levelSlider.maxValue = levelUpRequirement;
+        Debug.Log("Points needed: " + levelUpRequirement);
     }
 
-    void levelProgress(float addPoints)
+    public void LevelProgress(float addPoints)
     {
         currentPoints += addPoints;
-        //reflect this info on UI
+        levelSlider.value = currentPoints;
+        Debug.Log("Current Points: " +  currentPoints);
     }
 }

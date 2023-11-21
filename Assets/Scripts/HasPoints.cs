@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class HasPoints : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // add public float variables for other objects that contain points
+    public float enemyPoints;
+    public float coinPoints;
 
-    // Update is called once per frame
-    void Update()
+    private LevelController levelController;
+    public void Start()
     {
-        
+        levelController = FindObjectOfType<LevelController>();
+    }
+    public void EnemyDestroyed()
+    {
+        Debug.Log("Enemy Destroyed");
+        levelController.LevelProgress(enemyPoints);
+    }
+    public void coinCollected()
+    {
+        Debug.Log("Coin Collected");
+        levelController.LevelProgress(coinPoints);
     }
 }

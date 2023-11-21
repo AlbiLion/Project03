@@ -19,15 +19,16 @@ public class Collectable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // The player has touched the coin, so deactivate it
             gameObject.SetActive(false);
             coinBurst.Play();
             if (pickupSound != null)
             {
                 Instantiate(pickupSound, other.transform.position, Quaternion.identity);
             }
-            // You can also destroy the coin if needed
-            //Destroy(gameObject);
+
+            //Calls HasPoints script and CoinCollected Method, Point allocation is handled there
+            HasPoints hasPoints = FindObjectOfType<HasPoints>();
+            hasPoints.coinCollected();
         }
     }
 }
