@@ -9,6 +9,8 @@ public class LevelController : MonoBehaviour
 {
     float currentLevel;
     float currentPoints;
+    [SerializeField] ParticleSystem _levelUpParticles;
+    [SerializeField] AudioSource _levelUpAudio;
     [SerializeField] float levelUpRequirement;
     [SerializeField] float _incrementBy;
     [SerializeField] private TextMeshProUGUI levelText;
@@ -16,6 +18,8 @@ public class LevelController : MonoBehaviour
 
     bool _canLevelUp;
 
+
+    //Player starts game at level 1, and has 0 points in the beginning
     private void Awake()
     {
         currentPoints = 0;
@@ -27,6 +31,9 @@ public class LevelController : MonoBehaviour
         levelSlider.maxValue = levelUpRequirement;
         levelSlider.value = currentPoints;
     }
+
+    /* Continually checks if the player has enough points to level up
+    If there are enough points to level up, the LevelUpSequence method is called */
     void Update()
     {
         if (currentPoints >= levelUpRequirement)
@@ -41,12 +48,25 @@ public class LevelController : MonoBehaviour
         currentLevel += 1;
         levelText.text = "Level: " + currentLevel.ToString();
 
+        // If there is a particl system, play
+        if (_levelUpParticles != null)
+        {
+            _levelUpParticles.Play();
+        }
+
+        // If there is an audio system, play
+        if (_levelUpAudio != null)
+        {
+            AudioSource newLevelUpSound = Instantiate(_levelUpAudio, transform.position, Quaternion.identity);
+            Destroy(newLevelUpSound.gameObject, newLevelUpSound.clip.length);
+        }
+
         //the amount of points needed to level up again goes up by the increment amount
         levelUpRequirement += _incrementBy;
 
         // Reset current points, _canLevelUp status, level slider bar,
         currentPoints = 0;
-        _canLevelUp = false;  
+        _canLevelUp = false;
         levelSlider.value = currentPoints;
 
         //level slider bar's max value increases by the new levelUpRequirement
@@ -54,10 +74,11 @@ public class LevelController : MonoBehaviour
         Debug.Log("Points needed: " + levelUpRequirement);
     }
 
+    //Tracks level progression and displays info on the UI
     public void LevelProgress(float addPoints)
     {
         currentPoints += addPoints;
         levelSlider.value = currentPoints;
-        Debug.Log("Current Points: " +  currentPoints);
+        Debug.Log("Current Points: " + currentPoints);
     }
 }
