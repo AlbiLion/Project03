@@ -5,14 +5,10 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public GameObject BulletSpawnPoint;
     public float bulletSpeed;
     public float bulletLifetime;
-    private LayerMask _layersToShoot = -1;
-    public ParticleSystem _impactParticle;
     public AudioSource _shootSound;
     public GameObject spawnPoint;
-    public AudioClip laserFireSFX;
 
     public void Update()
     {
@@ -23,11 +19,23 @@ public class Shoot : MonoBehaviour
     }
     private void Shooting()
     {
-        GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        Instantiate(laserFireSFX, newBullet.transform.position, newBullet.transform.rotation);
-        Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
-        bulletRigidbody.velocity = transform.forward * bulletSpeed;
 
-        Destroy(newBullet, bulletLifetime);
+        // If there is a shoot sound, instantiate the sound then destroy it when finished
+        if (_shootSound != null)
+        {
+            AudioSource newShootSound = Instantiate(_shootSound, transform.position, Quaternion.identity);
+            Destroy(newShootSound.gameObject, newShootSound.clip.length);
+        }
+
+        // If there is a bullet prefab, instantiate the bullet and move it forward according to bulletSpeed
+        if (bulletPrefab != null)
+        {
+            GameObject newBullet = Instantiate(bulletPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
+
+            Rigidbody bulletRigidbody = newBullet.GetComponent<Rigidbody>();
+            bulletRigidbody.velocity = spawnPoint.transform.forward * bulletSpeed;
+
+            Destroy(newBullet, bulletLifetime);
+        }
     }
 }

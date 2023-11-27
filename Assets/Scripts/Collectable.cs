@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public float rotationSpeed = 125.0f;
-    public GameObject pickupSound;
-    public ParticleSystem coinBurst;
+    private float rotationSpeed = 125.0f;
+    public AudioSource pickUpSound;
 
     private void Update()
     {
@@ -20,10 +19,12 @@ public class Collectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameObject.SetActive(false);
-            coinBurst.Play();
-            if (pickupSound != null)
+
+            // If there is a pick-up sound, instantiate the sound then destroy it when finished
+            if (pickUpSound != null)
             {
-                Instantiate(pickupSound, other.transform.position, Quaternion.identity);
+                AudioSource newPickUpSound = Instantiate(pickUpSound, transform.position, Quaternion.identity);
+                Destroy(newPickUpSound.gameObject, newPickUpSound.clip.length);
             }
 
             //Calls HasPoints script and CoinCollected Method, Point allocation is handled there

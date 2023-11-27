@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 150
-  pickupSound: {fileID: 7436888900050361283, guid: 58265f09188acb04bafe05d5e4f4d91a, type: 3}
+  pickUpSound: {fileID: 3605917241870752478, guid: 537731d1f8617c74c8a513b01864188c, type: 3}
   coinBurst: {fileID: 6938612374566025275, guid: e00cd034d2f509847ae147ddc3df7159, type: 3}
