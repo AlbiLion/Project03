@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] float rotationSpeed;
+=======
+    [SerializeField] float rotationSpeed = 125.0f;
+>>>>>>> 8b5cfabee8d37d0fc3bee0d9ac959dd4476f24c8
     [SerializeField] AudioSource pickUpSound;
 
     private void Update()

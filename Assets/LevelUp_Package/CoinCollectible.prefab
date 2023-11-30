@@ -127,5 +127,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97630e9dbcfd3c04f9446cd486e2e3dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   rotationSpeed: 125
   pickUpSound: {fileID: 3605917241870752478, guid: 537731d1f8617c74c8a513b01864188c, type: 3}
+=======
+  rotationSpeed: 150
+  pickUpSound: {fileID: 3605917241870752478, guid: 537731d1f8617c74c8a513b01864188c, type: 3}
+  coinBurst: {fileID: 6938612374566025275, guid: e00cd034d2f509847ae147ddc3df7159, type: 3}
+>>>>>>> 8b5cfabee8d37d0fc3bee0d9ac959dd4476f24c8
