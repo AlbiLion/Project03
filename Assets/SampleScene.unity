@@ -3283,71 +3283,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2909287243816766040, guid: c3a0be16ff60ed4499ec6ccabb12c53b, type: 3}
   m_PrefabInstance: {fileID: 1730358348}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1073333552
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1073333554}
-  - component: {fileID: 1073333553}
-  - component: {fileID: 1073333555}
-  m_Layer: 0
-  m_Name: LevelUpController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1073333553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073333552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a08a8d98164f048a7ed1d7237154bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelUpParticles: {fileID: 1108129147}
-  _levelUpAudio: {fileID: 8640929637327340773, guid: 1218a5708f960774b83fbac8e2628835, type: 3}
-  levelUpRequirement: 10
-  _incrementBy: 10
-  levelText: {fileID: 254821913}
-  levelSlider: {fileID: 1636817833}
---- !u!4 &1073333554
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073333552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1073333555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073333552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6ba9bd0680dcf4d98312edbaeb45e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPoints: 10
-  coinPoints: 5
 --- !u!1 &1078214102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7355,6 +7290,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6be8c916a1c7e34198d42ea1e8c544a, type: 3}
+--- !u!1001 &6471514772156038949
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6471514772657699348, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: levelText
+      value: 
+      objectReference: {fileID: 254821913}
+    - target: {fileID: 6471514772657699348, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: levelSlider
+      value: 
+      objectReference: {fileID: 1636817833}
+    - target: {fileID: 6471514772657699348, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: _levelUpParticles
+      value: 
+      objectReference: {fileID: 1108129147}
+    - target: {fileID: 6471514772657699349, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_Name
+      value: LevelUpController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471514772657699351, guid: 337075166de621847b1d4375288b852c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 337075166de621847b1d4375288b852c, type: 3}
 --- !u!1001 &8464174002122183303
 PrefabInstance:
   m_ObjectHideFlags: 0
