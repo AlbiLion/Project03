@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 19788744a797414469a43a5db52c1233
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bulletPrefab: {instanceID: 0}
+  - BulletSpawnPoint: {instanceID: 0}
+  - _impactParticle: {fileID: 4057584965565481935, guid: 55785e7dc1cd33a4b9005171dfe87337, type: 3}
+  - _shootSound: {instanceID: 0}
+  - spawnPoint: {instanceID: 0}
+  - laserFireSFX: {fileID: 8300000, guid: 5867574a91db1ff4889b9b400299baad, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
