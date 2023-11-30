@@ -48,7 +48,7 @@ public class LevelController : MonoBehaviour
         currentLevel += 1;
         levelText.text = "Level: " + currentLevel.ToString();
 
-        // If there is a particl system, play
+        // If there is a particle system, play
         if (_levelUpParticles != null)
         {
             _levelUpParticles.Play();

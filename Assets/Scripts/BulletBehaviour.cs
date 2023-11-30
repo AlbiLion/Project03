@@ -12,7 +12,7 @@ public class BulletBehaviour : MonoBehaviour
             Destroy(collision.gameObject); // Destroy the target
             Destroy(gameObject); // Destroy the bullet
 
-            //Calls HasPoints script and EnemyDestroyed Method, Point allocation is handled there
+            //Calls EnemyDestroyed Method in the HasPoints script, Point allocation is handled there
             HasPoints hasPoints = FindObjectOfType<HasPoints>();
             hasPoints.EnemyDestroyed();
         }
