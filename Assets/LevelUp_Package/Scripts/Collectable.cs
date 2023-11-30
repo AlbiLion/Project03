@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    private float rotationSpeed = 125.0f;
-    public AudioSource pickUpSound;
+    [SerializeField] float rotationSpeed = 125.0f;
+    [SerializeField] AudioSource pickUpSound;
 
     private void Update()
     {
         // Rotate the coin slowly in place
-        transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,9 +27,9 @@ public class Collectable : MonoBehaviour
                 Destroy(newPickUpSound.gameObject, newPickUpSound.clip.length);
             }
 
-            //Calls HasPoints script and CoinCollected Method, Point allocation is handled there
+            //Calls CoinCollected method located in the HasPoints script, Point allocation is handled there
             HasPoints hasPoints = FindObjectOfType<HasPoints>();
-            hasPoints.coinCollected();
+            hasPoints.CoinCollected();
         }
     }
 }

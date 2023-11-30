@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public float bulletSpeed;
-    public float bulletLifetime;
-    public AudioSource _shootSound;
-    public GameObject spawnPoint;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletLifetime;
+    [SerializeField] AudioSource shootSound;
+    [SerializeField] GameObject spawnPoint;
 
     public void Update()
     {
@@ -19,14 +19,12 @@ public class Shoot : MonoBehaviour
     }
     private void Shooting()
     {
-
         // If there is a shoot sound, instantiate the sound then destroy it when finished
-        if (_shootSound != null)
+        if (shootSound != null)
         {
-            AudioSource newShootSound = Instantiate(_shootSound, transform.position, Quaternion.identity);
+            AudioSource newShootSound = Instantiate(shootSound, transform.position, Quaternion.identity);
             Destroy(newShootSound.gameObject, newShootSound.clip.length);
         }
-
         // If there is a bullet prefab, instantiate the bullet and move it forward according to bulletSpeed
         if (bulletPrefab != null)
         {

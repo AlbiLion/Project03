@@ -9,14 +9,14 @@ public class LevelController : MonoBehaviour
 {
     float currentLevel;
     float currentPoints;
-    [SerializeField] ParticleSystem _levelUpParticles;
-    [SerializeField] AudioSource _levelUpAudio;
+    [SerializeField] ParticleSystem levelUpParticles;
+    [SerializeField] AudioSource levelUpAudio;
     [SerializeField] float levelUpRequirement;
-    [SerializeField] float _incrementBy;
+    [SerializeField] float incrementBy;
     [SerializeField] private TextMeshProUGUI levelText;
     public Slider levelSlider;
 
-    bool _canLevelUp;
+    bool canLevelUp;
 
 
     //Player starts game at level 1, and has 0 points in the beginning
@@ -38,7 +38,7 @@ public class LevelController : MonoBehaviour
     {
         if (currentPoints >= levelUpRequirement)
         {
-            _canLevelUp = true;
+            canLevelUp = true;
             LevelUpSequence();
         }
     }
@@ -48,25 +48,25 @@ public class LevelController : MonoBehaviour
         currentLevel += 1;
         levelText.text = "Level: " + currentLevel.ToString();
 
-        // If there is a particl system, play
-        if (_levelUpParticles != null)
+        // If there is a particle system, play
+        if (levelUpParticles != null)
         {
-            _levelUpParticles.Play();
+            levelUpParticles.Play();
         }
 
         // If there is an audio system, play
-        if (_levelUpAudio != null)
+        if (levelUpAudio != null)
         {
-            AudioSource newLevelUpSound = Instantiate(_levelUpAudio, transform.position, Quaternion.identity);
+            AudioSource newLevelUpSound = Instantiate(levelUpAudio, transform.position, Quaternion.identity);
             Destroy(newLevelUpSound.gameObject, newLevelUpSound.clip.length);
         }
 
         //the amount of points needed to level up again goes up by the increment amount
-        levelUpRequirement += _incrementBy;
+        levelUpRequirement += incrementBy;
 
         // Reset current points, _canLevelUp status, level slider bar,
         currentPoints = 0;
-        _canLevelUp = false;
+        canLevelUp = false;
         levelSlider.value = currentPoints;
 
         //level slider bar's max value increases by the new levelUpRequirement

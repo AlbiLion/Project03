@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HasPoints : MonoBehaviour
 {
-    // add public float variables for other objects that contain points
+    // Add public float variables for other objects that contain points
     public float enemyPoints;
     public float coinPoints;
 
@@ -13,12 +13,14 @@ public class HasPoints : MonoBehaviour
     {
         levelController = FindObjectOfType<LevelController>();
     }
+
+    // Add more public methods as needed for other point collection types
     public void EnemyDestroyed()
     {
         Debug.Log("Enemy Destroyed");
         levelController.LevelProgress(enemyPoints);
     }
-    public void coinCollected()
+    public void CoinCollected()
     {
         Debug.Log("Coin Collected");
         levelController.LevelProgress(coinPoints);
