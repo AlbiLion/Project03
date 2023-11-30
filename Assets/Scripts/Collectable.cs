@@ -29,7 +29,7 @@ public class Collectable : MonoBehaviour
 
             //Calls CoinCollected method located in the HasPoints script, Point allocation is handled there
             HasPoints hasPoints = FindObjectOfType<HasPoints>();
-            hasPoints.coinCollected();
+            hasPoints.CoinCollected();
         }
     }
 }
