@@ -7414,5 +7414,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCube_Example
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6409594170698854044, guid: acd6f3aad44fb2f44a9f1c092bd42e98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: acd6f3aad44fb2f44a9f1c092bd42e98, type: 3}
